@@ -1,0 +1,29 @@
+
+### Java ###
+# Compiled class file
+*/target
+/target
+/build
+/.gradle
+*.class
+
+# Log file
+*/logs
+*.log
+*.log.*
+
+# Package Files #
+*.jar
+*.war
+*.nar
+*.ear
+
+### JetBrains ###
+/.idea
+*.iml
+
+### Allure ###
+.allure
+/.allure
+*/allure-results
+/allure-results
