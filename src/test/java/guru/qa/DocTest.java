@@ -26,16 +26,16 @@ public class DocTest {
         ) {
             ZipEntry entry;
             while ((entry = zis.getNextEntry()) != null) {
-                if (entry.getName().contains("test-file-xlsx1.pdf")) {
+                if (entry.getName().contains("example/ZIP.zip/test-file-xlsx1.pdf")) {
                     PDF contentPDF = new PDF(zis);
                     assertThat(contentPDF.text).contains("1 Den");
-                } else if (entry.getName().contains("test-file-xlsx3")) {
+                } else if (entry.getName().contains("example/ZIP.zip/test-file-xlsx3.xlsx")) {
                     XLS contentXLS = new XLS(zis);
-                    assertThat(contentXLS.excel.getSheetAt(0).getRow(1).getCell(2).getStringCellValue()).contains("Den");
-                } else if (entry.getName().contains("test-file-xlsx2")) {
+                    assertThat(contentXLS.excel.getSheetAt(0).getRow(1).getCell(1).getStringCellValue()).contains("Den");
+                } else if (entry.getName().contains("example/ZIP.zip/test-file-xlsx2.csv")) {
                     CSVReader reader = new CSVReader(new InputStreamReader(zis));
                     List<String[]> contentCSV = reader.readAll();
-                    assertThat(contentCSV.get(2)[1]).contains("Den");
+                    assertThat(contentCSV.get(0)[1]).contains("Den");
                 }
             }
         }
